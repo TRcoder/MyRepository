@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js的变量学习</title>
+		<!-- 
+		      js变量声明学习：
+			     1、js中所有变量声明只有var关键字
+				 var a =123;//js所有变量声明均为var
+				 var a1 = 3.1415926;
+				 var a2 = "js";
+				 var a3  = 'k';
+				 var a4 =true;
+				 var a5 = new Date();
+				 alert(a4);
+			  作用：
+			      变量是用来存储数据的，方便程序进行操作
+			  特点：
+			     js中的代码可以不使用分号，但是为了提升代码阅读性，建议使用分号
+				 变量声明只有var关键字，声明变量可以存储任意类型的数据
+			  注意：
+			    a、 js的变量名严格区分大小写
+				b、 js中的字符串可以使用双引号也可以使用单引号。
+				c、 js可以声明同名变量，但是会覆盖（重要
+			2、js中的数据类型
+			   数据类型判断关键字：typeof
+			   数据类型：
+			         number:数字类型
+				     string:字符串类型
+					     var b = "今天天气真好";
+					     var b1 ='l';
+					     alert(typeof b1);
+				     boolean：布尔类型
+				     object：对象类型
+					    var a5 = new Date();
+				     null:
+					    空对象赋值：主要是和undefined进行区分，只作对象接收
+					    var d = null;
+				     undefined:undefined(不能以undefined作为判断天)
+					    var c;
+						alert(typeof c);
+					    变量声明不赋值的情况下，默认值是undefined
+			注意：
+			     var d ;
+			     alert(d);
+			     alert(typeof c);
+				 在js代码中尽可能的给声明的变量赋初始值；
+		    3、js的变量强转
+			    使用Number（）函数，将其他数据类型转换为数值类型，若非数值类型转换失败返回NaN（不是一个数字）
+				使用Boolean()函数，将其他数据类型转换为布尔类型，有值返回true，无值返回false；
+			4、特殊的值
+			    null          object
+				undefined     undefined
+				NaN           number
+		 
+		 -->
+		<!-- 声明js代码域 -->
+		<script type="text/javascript">
+			/* js的变量学习 */
+			// var a =123;//js所有变量声明均为var
+			// var a1 = 3.1415926;
+			// var a2 = "js";
+			// var a3  = 'k';
+			// var a4 =true;
+			// var a5 = new Date();
+			// alert(a4);
+			/* js中的数据类型 */
+			var d ;
+			alert(d);
+			alert(typeof c);
+			/* js的变量强转 */
+			var a=1;
+			var b="11";
+			var c ="哈哈";
+			var d ;
+			alert(Number(b));
+			alert(Boolean(a));
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<h3>js的变量学习</h3>
+	</body>
+</html>

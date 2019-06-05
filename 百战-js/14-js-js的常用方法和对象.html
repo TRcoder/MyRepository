@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js的常用方法和对象学习</title>
+		<!-- 
+		    js的常用方法和对象学习
+			    String对象：操作字符的。
+				    使用：字符串.函数名即可。
+				    大小写转换：
+					       toUpperCase()   转换大写
+						   toLowerCase()   转换小写
+					字符串截取
+					       substr(0,1)       从指定开始位置截取指定长度的子字符串
+						   substring(0,1)    从指定位置开始到指定的结束位置的子字符串（含头不含尾）
+	                查找字符位置：
+						   indexof            返回指定字符第一次出现的位置
+						   lastIndexof        返回指定字符最后一次出现的位置
+				Date对象：
+				    使用：var 变量名=new Date()；
+					注意：获取的是客户端的时间，不能作为系统功能校验的时间的
+					参照：API
+				Math对象
+				    使用：Math.函数名
+					random()
+					round()
+					ceil()
+					floor()
+				Global对象
+				    eval()
+					isNaN()
+					parseInt()
+					parseFloat()
+		 
+		 
+		 -->
+		 <script type="text/javascript">
+		 	//String对象
+			function testString(){
+				//创建字符串
+				var str = "abdfa";
+				//大小写转换
+				alert(str.toUpperCase());
+				//字符串截取
+				alert(str.substr(0,1)+str.substring(0,1))
+				alert(str.substr(0,1).toUpperCase()+str.substr(1,str.length));
+			}
+			//Date对象
+			function testDate(){
+				var d = new Date();
+				alert(d);
+				//操作日期和时间
+				//获取年份数
+				 alert(d.getYear());//返回从1900年起算距今年份数
+				 alert(d.getFullYear());//返回当前的年份
+				 //获取月份
+				 alert(d.getMonth()+1);//获取当前月份数,注意:要+1
+				 //获取日期
+				 alert(d.getDate());//返回当前的日期
+				 alert(d.getDay());//返回星期数,注意:星期日返回0
+				 //获取小时数
+				 alert(d.getHours());//返回当前小时数
+				 //获取分钟数
+				 alert(d.getMinutes());//返回当前的分钟数
+				 //获取秒数
+				 alert(d.getSeconds());//返回当前的秒数
+			}
+			//Math对象
+			function testMath(){
+				//随机数字
+				alert(Math.floor(Math.random()*9000+1000));//可以作为验证码
+				
+			}
+			//Global对象
+			function testGlobal(){
+				//eval方法
+				eval("var a =123");//将字符串转换为js代码执行
+				alert(a);
+				//isNaN  判断Number强转后是否是数字
+				if(!isNaN(Number(a))){
+					alert("是数字");
+				}else{
+					alert("不是数字")
+				}
+			}
+			
+			
+		 </script>
+		
+		
+	</head>
+	<body>
+		<h3>js的常用方法和对象学习</h3>
+		<hr/>
+		<input type="button" name="" id="" value="测试String对象" onclick="testString()" />
+		<input type="button" name="" id="" value="测试Date对象" onclick="testDate()" />
+		<input type="button" name="" id="" value="测试Math对象" onclick="testMath()()" />
+		<input type="button" name="" id="" value="测试Global对象" onclick="testGlobal()" />
+
+	</body>
+</html>
