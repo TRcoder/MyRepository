@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js的事件学习机制二</title>
+		<!-- 
+		     js的事件机制学习2：
+			     1、给合适的html标签添加合适的事件
+		             onchange————————select下拉框
+					 onload———————————body标签
+					 单双击——————————用户会进行点击动作的HTML元素
+					 鼠标事件————————用户会进行鼠标移动操作的
+					 键盘事件————————用户会进行键盘操作的html元素
+				2、给HTML元素添加多个事件时，注意事件之间的冲突
+				    举个例子：单击和双击为例
+					当事件的触发条件包含相同部分的时候，会产生事件之间的冲突
+				3、事件的阻断
+				      当事件所监听的函数将返回值返回给事件时：
+					     false：则会阻断当前事件所在的HTML标签的功能
+						 true：则继续执行当前事件所在的HTML标签的功能
+				4、超链接调用js函数：
+				     <a href="javascript:函数名()">调用js函数</a>
+					    
+		 
+		 -->
+		 <script type="text/javascript">
+		 	//值改变事件
+			function testOnchange(){
+				alert("我被改变了");
+			}
+			//事件的阻断
+			function testA(){
+				alert("我被阻断了");
+				return false;
+			}
+			//超链接调用js函数
+			function testHref(){
+				alert("我是超链接调用js函数");
+			}
+		 </script>
+	</head>
+	<body>
+		<h3>js的事件学习机制二</h3>
+		<hr  />
+		值改变事件：
+		<select name="" id=""  onchange="testOnchange()">
+			<option value="">北京</option>
+			<option value="">上海</option>
+			<option value="">广州</option>
+		</select>
+		<hr  />
+		事件的冲突：<br />
+		事件的阻断：
+		<a href="http://www.baidu.com" target="_blank" onclick="return testA()">百度一下</a>
+		<hr />
+		超链接调用js函数
+		<a href="javascript:testHref()">调用js函数</a>
+		
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js的事件机制学习1</title>
+		<!--  
+		      js的事件机制
+			    解释：当我们的行为动作满足了一定的条件后，就会触发某类事务的执行
+				作用：主要是结合了js的函数来使用
+				内容：
+				   1、单双击事件
+				      单击：onclick
+					  双击： ondblclick
+				   2、鼠标事件
+				      onmouseover    当鼠标悬停在某个html元素上触发
+					  onmousemove    当鼠标在某个html元素上移动时触发
+					  onmouseout     当鼠标在某个html上移出的时候触发
+				   3、键盘事件
+				      onkeyup        当键盘在某个html元素上弹起时触发
+					  onkeydown      当键盘在某个html元素上下压的时候触发
+				   4、焦点事件
+				      onfocus        当某个html元素获取焦点的时候触发
+				      onblur         当某个html元素失去焦点的时候触发
+				   5、页面加载事件
+				     onload          当页面加载成功后触发
+				注意：
+				    js中添加事件的第一种方式：
+					     在HTML上直接使用事件属性进行添加，属性值为所监听执行的函数
+					js中的事件只有在当前HTML元素上有效
+					一个HTML元素可以添加多个不同的事件
+					一个事件可以监听触发多个函数的执行但是不同的函数要使用;间隔
+		 
+		 -->
+		 <!-- js代码域-->
+		 <script type="text/javascript">
+		 	/* 声明js函数 */
+			//单击事件
+			function testOnclick(){
+				alert("我是单击");
+			}
+			function testOndblclick(){
+				alert("我是双击");
+			}
+			function testOnmouseover(){
+				alert("我是鼠标悬停事件");
+			}
+			function testonmousemove(){
+				alert("我被移动了");
+			}
+			//键盘事件
+			function testOnKeyup(){
+				alert("我是键盘弹起事件");
+			}
+			function testOnKeydown(){
+				alert("我是键盘按下事件");
+			}
+			function testOnfocus(){
+				document.getElementById("showdiv").innerHTML="我是获取焦点事件";
+				//alert("我是获取焦点事件");
+			}
+			function testOnblur(){
+				alert("我是失去焦点事件");
+			}
+			//页面加载
+			function testOnload(){
+				alert("我是页面加载事件");
+			}
+			//测试
+			function test(){
+				alert("监听多个事件");
+			}
+			
+		 </script>
+		 <style type="text/css">
+		 	#showdiv{
+				width: 300px;
+				height: 300px;
+				border: solid 1px;
+			}
+		 </style>
+	</head>
+	<body onload="testOnload()">
+		<h3>js的事件机制学习1</h3>
+		<input type="button" name="" id="" value="测试单击" onclick="testOnclick();test()" />
+		<input type="button" name="" id="" value="测试双击" ondblclick="testOndblclick()" />
+       <hr  />
+	   <br  /><br   />
+	   <div id="showdiv"   onmouseover="testOnmouseover()" onmousemove="testonmousemove()">
+	   	
+	   </div>
+	   <hr  />
+	   键盘事件学习：<br />
+	   键盘弹起事件：<input type="text" name="" id="" value=""  onkeyup="testOnKeyup()"/>
+	   键盘下压事件：<input type="text" name="" id="" value=""  onkeydown="testOnKeydown()"/>
+	   <hr />
+	   焦点学习事件：<br/>
+	   获取焦点：<input type="text" name="" id="" value="" onfocus="testOnfocus()"/>
+	   失去焦点：<input type="text" name="" id="" value=""  onblur="testOnblur()"/>
+	
+	
+	</body>
+	
+</html>
