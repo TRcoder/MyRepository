@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        <!--数据源封装类,其中数据源：获取数据库连接,sprig-jdbc.jar中  -->
+   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+       <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+       <property name="url" value="jdbc:mysql://localhost:3306/ssm?characterEncoding=utf8"></property>
+       <property name="username" value="root"></property>
+       <property name="password" value="tangrui"></property>
+       <!--最大连接数  -->
+       <property name="maxTotal" value="30"/>
+       <!-- 最大空闲连接数 -->
+       <property name="maxIdle" value="10"/>
+       <!-- 初始化连接数 -->
+       <property name="initialSize" value="5"></property>
+   </bean>
+   <!-- 添加事务支持 -->
+   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   		<property name="dataSource" ref="dataSource"/>
+   </bean>
+   <!-- 开启事务注解 -->
+   <tx:annotation-driven transaction-manager="txManager"/>
+   <!--创建SqlSessionFactory对象:配置MyBatis工厂，同时指定数据源，并与MyBatis完美整合  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 数据库连接信息来源于dataSource -->
+       <property name="dataSource" ref="dataSource"></property>
+       <!-- configLocation的属性值为MyBatis的核心配置文件 -->
+       <property name="configLocation" value="classpath:123/mybatis/mybatis-config.xml"/>
+    </bean>
+    <!-- Mapper代理开发，使用Spring自动扫描Mybatis的接口并装配
+    (Spring将指定包中所有被@Mapper注解标注的接口自动装配为MyBatis的映射接口) -->
+    <!--扫描相当于mybatis.xml中mappers下package标签 ，扫描com.bjsxt.mapper包后会给对应接口创建对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!--要扫描哪个包  -->
+    <property name="basePackage" value="com.dao"></property>
+    <!--和factory产生关系  -->
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+    <!--指定需要扫描的包(包括子包)，使注解生效。dao包在mybatis-spring组件中已经扫描，这里不再需要扫描  -->
+    <context:component-scan base-package="com.service"></context:component-scan>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
