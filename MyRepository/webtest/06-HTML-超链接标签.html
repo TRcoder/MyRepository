@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>超链接标签学习</title>
+	</head>
+	<body>
+		<h3>超链接标签学习</h3>
+		<hr />
+		<!-- 
+		     超链接标签学习：
+			        a标签：
+					    href：要跳转的网页资源路径
+						     本地资源：相对路径
+							 网络资源：网络资源（网页）的URL
+							 target：指明要跳转的网页资源的显示位置
+							    _self： 在当前页中刷新显示
+								_blank：在新的标签页中显示
+								_top：  在顶层页面中显示
+								_parent: 在父级页面中显示
+								
+							
+					注意：
+					      超链接标签中一定要申明访问方式，访问方式可以是文字也可以是图片
+		   锚点学习：
+		       作用：在一张网页中进行资源跳转
+				使用：
+				   先使用超链接标签在指定的网页位置增加锚点，格式为：
+				   <a name="锚点名"></a>
+				   使用a标签可以跳转到指定的锚点，达到网页内部资源跳转的目的，格式：
+				   <a href="#锚点名">访问方式</a>
+		 
+		 -->
+		 <!-- 本地资源-->
+		 <h4>b本地资源</h4>
+		
+		<a href="05-HTML-图片标签学习.html" target="_blank">图片标签学习</a><br  />
+		
+		<a href="04-HTML-body标签（标签列表.html"  target="_blank"><img src="img/a.jpg"  height="200px"></a>
+		<hr />
+		<!-- 网络资源 -->
+		<h4>b网络资源</h4>
+		<a href="http://www.taobao.com"  target="_blank">淘宝一下</a><br />
+		<a href="http://www.taobao.com"  target="_blank"><img src="img/taobao.png" ></a><br />
+	    <!-- 锚点学习：-->
+		<h4>锚点学习：</h4>
+		<a href="锚点学习.html">锚点学习</a>
+		
+	
+	
+	</body>
+</html>
